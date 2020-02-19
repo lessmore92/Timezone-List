@@ -10,9 +10,9 @@ Currently, there are some branches of Timezone-List is compatible with the follo
 | ------------------------------------------------------------- | ---------------- |
 | [4.x](https://github.com/lessmore92/Timezone-List/tree/4.x)     | 4.x              |
 | [5.x](https://github.com/lessmore92/Timezone-List/tree/5.x)     | 5.x              |
-| [5.x](https://github.com/lessmore92/Timezone-List/tree/6.x)     | 6.x              |
+| 6.x     | 6.x              |
 
-This documentation is use for Laravel 5.x
+This documentation is use for Laravel 6.x
 
 # Installation
 
