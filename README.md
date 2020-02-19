@@ -8,8 +8,9 @@ Currently, there are some branches of Timezone-List is compatible with the follo
 
 | Timezone-List branch                                          | Laravel version  |
 | ------------------------------------------------------------- | ---------------- |
-| [4.x](https://github.com/JackieDo/Timezone-List/tree/4.x)     | 4.x              |
-| [5.x](https://github.com/JackieDo/Timezone-List/tree/5.x)     | 5.x              |
+| [4.x](https://github.com/lessmore92/Timezone-List/tree/4.x)     | 4.x              |
+| [5.x](https://github.com/lessmore92/Timezone-List/tree/5.x)     | 5.x              |
+| [5.x](https://github.com/lessmore92/Timezone-List/tree/6.x)     | 6.x              |
 
 This documentation is use for Laravel 5.x
 
@@ -17,23 +18,11 @@ This documentation is use for Laravel 5.x
 
 You can install this package through [Composer](https://getcomposer.org).
 
-- First, edit your project's `composer.json` file to require `jackiedo/timezonelist`:
-
-```php
-...
-"require": {
-	...
-    "jackiedo/timezonelist": "5.*"
-},
-```
-
-- Next, update Composer from the Terminal:
-
 ```shell
-$ composer update
+composer require lessmore92/timezonelist
 ```
 
-- Once update operation completes, the final step is to add the service provider. Open `config/app.php`, and add a new item to the providers array:
+- After that, the final step is to add the service provider. Open `config/app.php`, and add a new item to the providers array:
 
 ```php
 ...
@@ -41,7 +30,14 @@ $ composer update
     ...
     Lessmore92\Timezonelist\TimezonelistServiceProvider::class,
 ),
+
+...
+
+'aliases' => [
+    'Timezonelist' => Lessmore92\Timezonelist\Facades\Timezonelist::class,
+],
 ```
+> **Note**: If you are using Laravel 6.x, this step is unnecessary. Laravel Messenger supports [Package Discovery](https://laravel.com/docs/5.5/packages#package-discovery).
 
 # Usage
 

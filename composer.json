@@ -27,5 +27,15 @@
       "Lessmore92\\Timezonelist\\": "src/Timezonelist"
     }
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Lessmore92\\Timezonelist\\TimezonelistServiceProvider"
+      ],
+      "aliases": {
+        "Timezonelist": "Lessmore92\\Timezonelist\\Facades\\Timezonelist"
+      }
+    }
+  },
   "minimum-stability": "stable"
 }
