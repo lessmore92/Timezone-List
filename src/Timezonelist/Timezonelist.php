@@ -1,4 +1,6 @@
-<?php namespace Jackiedo\Timezonelist;
+<?php
+
+namespace Lessmore92\Timezonelist;
 
 use DateTime;
 use DateTimeZone;
@@ -6,7 +8,7 @@ use DateTimeZone;
 /**
  * The Timezonelist facade.
  *
- * @package Jackiedo\Timezonelist
+ * @package Lessmore92\Timezonelist
  * @author Jackie Do <anhvudo@gmail.com>
  */
 class Timezonelist
@@ -47,14 +49,14 @@ class Timezonelist
     /**
      * Format to display timezones
      *
-     * @param  string $timezone
-     * @param  string $continent
+     * @param string $timezone
+     * @param string $continent
      *
      * @return string
      */
     protected function formatTimezone($timezone, $continent)
     {
-        $time = new DateTime(null, new DateTimeZone($timezone));
+        $time   = new DateTime(null, new DateTimeZone($timezone));
         $offset = $time->format('P');
         $offset = str_replace('-', ' &minus; ', $offset);
         $offset = str_replace('+', ' &plus; ', $offset);
@@ -75,44 +77,52 @@ class Timezonelist
      * @param mixed $attr
      * @return string
      **/
-    public function create($name, $selected='', $attr='')
+    public function create($name, $selected = '', $attr = '')
     {
 
         // Attributes for select element
         $attrSet = null;
-        if (!empty($attr)) {
-            if (is_array($attr)) {
-                foreach ($attr as $attr_name => $attr_value) {
-                    $attrSet .= ' ' .$attr_name. '="' .$attr_value. '"';
+        if (!empty($attr))
+        {
+            if (is_array($attr))
+            {
+                foreach ($attr as $attr_name => $attr_value)
+                {
+                    $attrSet .= ' ' . $attr_name . '="' . $attr_value . '"';
                 }
-            } else {
-                $attrSet = ' ' .$attr;
+            }
+            else
+            {
+                $attrSet = ' ' . $attr;
             }
         }
 
         // start select element
-        $listbox = '<select name="' .$name. '"' .$attrSet. '>';
+        $listbox = '<select name="' . $name . '"' . $attrSet . '>';
 
         // Add popular timezones
         $listbox .= '<optgroup label="General">';
-        foreach ($this->popularTimezones as $key => $value) {
+        foreach ($this->popularTimezones as $key => $value)
+        {
             $selected_attr = ($selected == $key) ? ' selected="selected"' : '';
-            $listbox .= '<option value="' .$key. '"' .$selected_attr. '>' .$value. '</option>';
+            $listbox       .= '<option value="' . $key . '"' . $selected_attr . '>' . $value . '</option>';
         }
         $listbox .= '</optgroup>';
 
         // Add all timezone of continents
-        foreach ($this->continents as $continent => $mask) {
+        foreach ($this->continents as $continent => $mask)
+        {
             $timezones = DateTimeZone::listIdentifiers($mask);
 
             // start optgroup tag
-            $listbox .= '<optgroup label="' .$continent. '">';
+            $listbox .= '<optgroup label="' . $continent . '">';
 
             // create option tags
-            foreach ($timezones as $timezone) {
+            foreach ($timezones as $timezone)
+            {
                 $selected_attr = ($selected == $timezone) ? ' selected="selected"' : '';
 
-                $listbox .= '<option value="' .$timezone. '"' .$selected_attr. '>';
+                $listbox .= '<option value="' . $timezone . '"' . $selected_attr . '>';
                 $listbox .= $this->formatTimezone($timezone, $continent);
                 $listbox .= '</option>';
             }
@@ -137,14 +147,17 @@ class Timezonelist
         $list = [];
 
         // Add popular timezones to list
-        foreach ($this->popularTimezones as $key => $value) {
+        foreach ($this->popularTimezones as $key => $value)
+        {
             $list['General'][$key] = $value;
         }
 
         // Add all timezone of continents to list
-        foreach ($this->continents as $continent => $mask) {
+        foreach ($this->continents as $continent => $mask)
+        {
             $timezones = DateTimeZone::listIdentifiers($mask);
-            foreach ($timezones as $timezone) {
+            foreach ($timezones as $timezone)
+            {
                 $list[$continent][$timezone] = $this->formatTimezone($timezone, $continent);
             }
         }

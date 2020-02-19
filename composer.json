@@ -1,22 +1,31 @@
 {
-    "name": "jackiedo/timezonelist",
-    "description": "A small package use to create a timezone list box in Laravel",
-    "keywords": ["timezone", "timezones", "timezonelist", "laravel"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Jackie Do",
-            "email": "anhvudo@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=5.4.0",
-        "illuminate/support": "5.*"
+  "name": "lessmore92/timezonelist",
+  "description": "A small package use to create a timezone list box in Laravel",
+  "keywords": [
+    "timezone",
+    "timezones",
+    "timezonelist",
+    "laravel"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jackie Do",
+      "email": "anhvudo@gmail.com"
     },
-    "autoload": {
-        "psr-4": {
-            "Jackiedo\\Timezonelist\\": "src/Jackiedo/Timezonelist"
-        }
-    },
-    "minimum-stability": "stable"
+    {
+      "name": "Mojtaba Bahrami",
+      "email": "bahramisoft@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "illuminate/support": "6.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Lessmore92\\Timezonelist\\": "src/Timezonelist"
+    }
+  },
+  "minimum-stability": "stable"
 }

@@ -39,7 +39,7 @@ $ composer update
 ...
 'providers' => array(
     ...
-    Jackiedo\Timezonelist\TimezonelistServiceProvider::class,
+    Lessmore92\Timezonelist\TimezonelistServiceProvider::class,
 ),
 ```
 
